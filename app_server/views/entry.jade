@@ -1,0 +1,32 @@
+extends layout
+include _includes/sharedHTMLfunctions
+
+block content
+    .container
+        .error=message
+        h1=title
+        h3=subtitle
+        p
+            bold System:&nbsp;
+            span=system
+        p
+            bold Genre:&nbsp;
+            span=genre
+        p
+            bold Level:&nbsp;
+            span
+                +outputLevel(level)
+        p
+            bold Published:&nbsp;
+            span=publicationDate
+        .row
+            .col-xs-12
+                .entry.entry-main
+                    a(href='../images/#{mainImage.filename}')
+                        img.img-responsive(src='../images/#{mainImage.filename}' alt=mainImage.alt)
+        .row
+            each image in images
+                .col-xs-12.col-sm-6.col-md-4
+                    .entry.entry-thumbnail
+                        a(href='../images/#{image.filename}')
+                            img.img-responsive(src='../images/#{image.filename}' alt=image.alt)

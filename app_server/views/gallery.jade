@@ -1,0 +1,19 @@
+extends layout
+include _includes/sharedHTMLfunctions
+block content
+    .container
+        .row#banner
+            .col-xs-10.col-lg-6
+                h1=pageHeader.title
+                small &nbsp;#{pageHeader.strapline}
+        .row.no-gutter.gallery-row
+            .error=message
+            each gallery in galleries
+                .col-xs-12.col-sm-6.col-md-4.col-lg-3
+                    .gallery-entry
+                        a(href='/gallery/#{gallery.slug}')
+                            img.img-responsive(src="../images/#{gallery.mainImage.filename}" alt=gallery.mainImage.alt)
+                            .gallery-caption
+                                h2=gallery.title
+                                p=gallery.subtitle
+                                +outputLevel(gallery.level)

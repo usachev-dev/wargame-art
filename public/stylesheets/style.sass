@@ -1,0 +1,44 @@
+@mixin border
+  border: 1px darkslategrey solid
+$gallery-padding-value: 5px
+$border-radius-value: 10px
+
+.gallery-entry
+  background-color: #f0f0f0
+  border-radius: $border-radius-value
+  padding: $gallery-padding-value
+  img
+    border-radius: $border-radius-value
+  &:hover
+    background-color: #707070
+  &:hover .gallery-caption
+    display: inline
+
+.entry
+  padding: $gallery-padding-value
+  background-color: #f0f0f0
+
+.entry-thumbnail
+  &:hover
+    @include border
+  border-radius: $border-radius-value
+  img
+    border-radius: $border-radius-value
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child)
+  padding-right: $gallery-padding-value
+  padding-left: $gallery-padding-value
+
+
+.gallery-caption
+  position: absolute
+  bottom: $gallery-padding-value+1px
+  right: $gallery-padding-value +6px
+  border-radius: $border-radius-value 0px
+  color: white
+  background: rgba(0, 0, 0, 0.8)
+  padding: 5px
+    left: 15px
+  display: none
+

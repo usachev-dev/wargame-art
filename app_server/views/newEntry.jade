@@ -1,0 +1,47 @@
+extends layout
+block content
+    .container
+        h1=title
+        form.form-horizontal(method="post",action="",role="form",enctype="multipart/form-data")
+            .form-group
+                label.col-xs-2.control-label(for="slug") Gallery slug (used in URL)
+                .col-xs-4
+                    input.form-control#slug(type="text", name="slug")
+            .form-group
+                label.col-xs-2.control-label(for="title") Gallery title
+                .col-xs-4
+                    input.form-control#title(type="text", name="title")
+            .form-group
+                label.col-xs-2.control-label(for="subtitle") Gallery subtitle
+                .col-xs-4
+                    input.form-control#subtitle(type="text", name="subtitle")
+            .form-group
+                label.col-xs-2.control-label(for="description") Description for entry
+                .col-xs-4
+                    textarea.form-control#description(rows=3, name="description")
+            .form-group
+                label.col-xs-2.control-label(for="system") Gaming system
+                .col-xs-4
+                    select#system(name="system").form-control
+                        each system in systems
+                            option(value=system) #{system.system}, genre: #{system.genre}
+            .form-group
+                label.col-xs-2.control-label(for="level") Painting level
+                .col-xs-4
+                    select#level(name="level").form-control
+                        option(value=1) 1
+                        option(value=2) 2
+                        option(value=3) 3
+            .form-group
+                label.col-xs-2.control-label(for="mainImage") Main image
+                .col-xs-4
+                    input#mainImage.form-control-file(type="file", name="mainImage")
+                    small.form-text.text-muted Thumbnail in galleries view and large image in entry view, load big size
+            .form-group
+                label.col-xs-2.control-label(for="images") Images
+                .col-xs-4
+                    input#images.form-control-file(type="file", name="images" multiple)
+                    small.form-text.text-muted Other images of gallery, big size
+            .form-group
+                .col-xs-4.col-xs-offset-2
+                    button#submit.btn.btn-primary(type="submit") Add Gallery

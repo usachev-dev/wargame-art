@@ -1,0 +1,9 @@
+extends layout
+block content
+
+    .container
+        .row
+            h1=title
+            each subsection in content
+                h2=subsection.title
+                p=subsection.text

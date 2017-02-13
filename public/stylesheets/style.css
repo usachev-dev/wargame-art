@@ -1,0 +1,52 @@
+.gallery-entry {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.gallery-entry img {
+  border-radius: 10px;
+}
+
+.gallery-entry:hover {
+  background-color: #707070;
+}
+
+.gallery-entry:hover .gallery-caption {
+  display: inline;
+}
+
+.entry {
+  padding: 5px;
+  background-color: #f0f0f0;
+}
+
+.entry-thumbnail {
+  border-radius: 10px;
+}
+
+.entry-thumbnail:hover {
+  border: 1px darkslategrey solid;
+}
+
+.entry-thumbnail img {
+  border-radius: 10px;
+}
+
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.gallery-caption {
+  position: absolute;
+  bottom: 6px;
+  right: 11px;
+  border-radius: 10px 0px;
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  padding-left: 15px;
+  display: none;
+}
