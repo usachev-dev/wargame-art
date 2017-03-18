@@ -1,0 +1,87 @@
+<div ng-controller="orderCtrl as oc">
+    <form class="form-horizontal" role="form" name="orderForm" ng-submit="oc.submitOrder()" novalidate>
+        <div class="form-group"
+             ng-class="{'has-error':orderForm.name.$error.required && orderForm.name.$dirty,
+                        'has-success':!orderForm.name.$error.required && orderForm.name.$dirty}">
+            <label class="control-label col-xs-12 col-sm-3" for="name">Имя*</label>
+            <div class="col-xs-12 col-sm-6">
+                <input class="form-control" id="name" type="text" name="name" ng-model="oc.orderData.name" required autofocus/>
+                <small class="help-block" ng-show="orderForm.name.$error.required && orderForm.name.$dirty">Имя - обязательное поле</small>
+            </div>
+        </div>
+        <div class="form-group"
+             ng-class="{'has-error':orderForm.phone.$error.required && orderForm.phone.$dirty,
+                        'has-success':!orderForm.phone.$error.required && orderForm.phone.$dirty}">
+            <label class="control-label col-xs-12 col-sm-3" for="phone">Телефон*</label>
+            <div class="col-xs-12 col-sm-6">
+                <div class="input-group">
+                    <div class="input-group-addon">+7</div>
+                    <input class="form-control" id="phone" type="text" name="phone" phone-input required ng-model="oc.orderData.phone"/>
+                </div>
+                <small class="help-block" ng-show="orderForm.phone.$error.required && orderForm.phone.$dirty">Для подтверждения заказа требуется телефон</small>
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error':(orderForm.email.$invalid || orderForm.email.$error.required) && orderForm.email.$dirty}">
+            <label class="control-label col-xs-12 col-sm-3" for="email">E-mail*</label>
+            <div class="col-xs-12 col-sm-6">
+                <input class="form-control" id="email" type="email" name="email" required ng-model="oc.orderData.email" ng-model-options="{updateOn:'blur'}"/>
+                <small class="help-block" ng-show="orderForm.email.$error.required && orderForm.email.$dirty">Для оформления заказа необходим email</small>
+                <small class="help-block" ng-show="orderForm.email.$invalid && orderForm.email.$dirty">Нужен правильный email</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3" for="minis">Миниатюры</label>
+            <div class="col-xs-12 col-sm-9">
+                <textarea class="form-control" id="minis" name="minis" ng-model="oc.orderData.minis"></textarea><span class="help-block">Cсылки на те миниатюры, покраску которых Вы хотите заказать</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12 col-xs-offset-0 col-sm-offset-3">
+                <label>
+                    <input id="assembly" name="assembly" type="checkbox" ng-model="oc.orderData.assembly"/><span class="normal"> Требуется сборка</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-12 col-sm-3 control-label" for="level">Уровень покраски</label>
+            <div class="col-xs-12 col-sm-9">
+                <select class="form-control" id="level" type="select" name="level" ng-model="oc.orderData.level">
+                    <option value="1">1. Орда</option>
+                    <option value="2">2. Оптимальный</option>
+                    <option value="3">3. Художественный</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" style="display:none">
+            <label class="col-xs-12 col-sm-3 control-label" for="delivery1">Способ передачи миниатюр</label>
+            <div class="col-xs-12 col-sm-9">
+                <select class="form-control" id="delivery1" type="select" name="delivery1" ng-model="oc.orderData.level">
+                    <option value="Лично в студии">Лично в студии</option>
+                    <option value="Лично в студии">Доставка из магазина</option>
+                    <option value="Курьер в Москве">Курьер в Москве</option>
+                    <option value="Почта России">Почта России</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-12 col-sm-3" for="comments">Примечания</label>
+            <div class="col-xs-12 col-sm-9">
+                <textarea class="form-control" id="comments" name="comments" ng-model="oc.orderData.comments"></textarea><span class="help-block">Цветовая схема и любые конкретные требования и пожелания</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-2 col-xs-offset-3">
+                <button class="btn btn-primary" type="submit" ng-disabled="orderForm.$invalid">Отправить</button>
+            </div>
+            <div class="col-xs-2">
+                <img src="https://s3.amazonaws.com/wargame-art/images/spinner.svg" ng-show="oc.showSpinner">
+            </div>
+        </div>
+        <div class="alert alert-success fade in" ng-show="oc.message==='success'">
+            <p>Заказ оформлен. Спасибо!</p>
+        </div>
+        <div class="alert fade alert-danger in" ng-show="oc.message==='error'">
+            <p>Возникли проблемы. Извините!</p>
+        </div>
+    </form>
+</div>

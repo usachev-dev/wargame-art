@@ -10,21 +10,24 @@ var multer = Multer({
 });
 
 router.use('/gallery/new', multer.fields([{ name:'mainImage',maxCount:1},{name:'images',maxCount:20}]));
-
 /*static pages*/
 router.get('/',ctrlStatic.homepage);
 router.get('/about',ctrlStatic.about);
+router.get('/price',ctrlStatic.price);
+router.get('/contacts',ctrlStatic.contacts);
 
 
 /*Gallery*/
-router.get('/gallery',ctrlGallery.gallery);
+//router.get('/gallery',ctrlGallery.gallery);
+router.get('/gallery',ctrlGallery.galleryAngular);
 router.get('/gallery/new',ctrlNewEntry.newEntryForm);
-router.post('/gallery/new',ctrlNewEntry.newEntrySubmit)
+router.post('/gallery/new',ctrlNewEntry.newEntrySubmit);
 router.get('/gallery/:slug',ctrlGallery.entry);
 //router.get(/\/gallery\/(.*)/, ctrlGallery.entry);
 
 
 /*Order page*/
 router.get('/order',ctrlOrder.orderForm);
+//router.post('/order',ctrlOrder.newOrderSubmit);
 
 module.exports = router;

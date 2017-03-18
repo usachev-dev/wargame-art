@@ -60,3 +60,5 @@ process.on('SIGTERM', function(){
 });
 
 require('./galleries');
+require('./systems');
+require('./genres');

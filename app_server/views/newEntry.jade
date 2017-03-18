@@ -24,12 +24,18 @@ block content
                 .col-xs-4
                     select#system(name="system").form-control
                         each system in systems
-                            option(value=system) #{system.system}, genre: #{system.genre}
+                            option(value=system.name) #{system.name}
+            .form-group
+                label.col-xs-2.control-label(for="genre") Genre
+                .col-xs-4
+                    select#genre(name="genre").form-control
+                        each genre in genres
+                            option(value=genre.name) #{genre.name}
             .form-group
                 label.col-xs-2.control-label(for="level") Painting level
                 .col-xs-4
                     select#level(name="level").form-control
-                        option(value=1) 1
+                        option(value=1 selected) 1
                         option(value=2) 2
                         option(value=3) 3
             .form-group

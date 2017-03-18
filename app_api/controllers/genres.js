@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
-var Sys = mongoose.model('systemsModel');
+var Genres = mongoose.model('genresModel');
 
 
-module.exports.getAllSystems = function(req,res){
-    Sys
+module.exports.getAllGenres = function(req,res){
+    Genres
         .find()
         .exec(function(err,systems){
             if(err){
@@ -18,4 +18,3 @@ var sendJsonResponse = function(res,status,content) {
     res.status(status);
     res.json(content);
 };
-

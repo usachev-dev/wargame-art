@@ -14,14 +14,11 @@ var entriesSchema = new mongoose.Schema({
     level: {type: Number, "default":2, min: 0, max: 3},
     system: String,
     genre: String,
+    description: String,
     mainImage: {type:imageSchema, required:true},
     images:[imageSchema]
 });
 
-var systemsSchema = new mongoose.Schema({
-    system: {type:String, required:true, unique:true},
-    genre: String
-});
+
 
 mongoose.model('galleriesModel', entriesSchema,'galleries');
-mongoose.model('systemsModel', systemsSchema,'systems');

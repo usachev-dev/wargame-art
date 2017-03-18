@@ -1,4 +1,13 @@
+.normal {
+  font-weight: normal;
+}
+
+.main {
+  padding-top: 50px;
+}
+
 .gallery-entry {
+  display: block;
   background-color: #f0f0f0;
   border-radius: 10px;
   padding: 5px;
@@ -6,6 +15,7 @@
 
 .gallery-entry img {
   border-radius: 10px;
+  margin: auto;
 }
 
 .gallery-entry:hover {
@@ -14,6 +24,17 @@
 
 .gallery-entry:hover .gallery-caption {
   display: inline;
+}
+
+.entry-main img {
+  margin: auto;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.entry-main img:hover {
+  background-color: #707070;
 }
 
 .entry {
@@ -49,4 +70,170 @@
   padding: 5px;
   padding-left: 15px;
   display: none;
+}
+
+.gallery-thumb {
+  min-height: 200px;
+  min-width: 200px;
+}
+
+#searchbar {
+  position: fixed;
+  right: 0px;
+}
+
+#searchbar.active {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.side-info {
+  position: fixed;
+  right: 0px;
+}
+
+#image-modal.closed {
+  display: none;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+#image-modal {
+  position: fixed;
+  top: 30px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  resize: both;
+  overflow: auto;
+  cursor: pointer;
+}
+
+#image-modal #closing-area {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#image-modal .active {
+  color: white !important;
+}
+
+#image-modal .close-button {
+  position: fixed;
+  top: 55px;
+  right: 0px;
+  z-index: 99999;
+  text-align: right;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #707070;
+}
+
+#image-modal .close-button:hover {
+  color: white;
+}
+
+@media (max-width: 767px) {
+  #image-modal .close-button span {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #image-modal .close-button span {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #image-modal .close-button span {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #image-modal .close-button span {
+    font-size: 50px;
+  }
+}
+
+#image-modal .image-wrap {
+  z-index: 9999;
+  display: flex;
+  resize: both;
+  overflow: auto;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+#image-modal .image-wrap img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+#image-modal .image-wrap .arrow {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  display: block;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #707070;
+}
+
+#image-modal .image-wrap .arrow:hover {
+  color: white;
+}
+
+@media (max-width: 767px) {
+  #image-modal .image-wrap .arrow span {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #image-modal .image-wrap .arrow span {
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #image-modal .image-wrap .arrow span {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #image-modal .image-wrap .arrow span {
+    font-size: 50px;
+  }
+}
+
+#image-modal .image-wrap .next {
+  right: 0px;
+  width: 70%;
+  text-align: right;
+}
+
+#image-modal .image-wrap .prev {
+  left: 0px;
+  width: 30%;
+  text-align: left;
 }

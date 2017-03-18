@@ -4,3 +4,15 @@ mixin outputLevel (level)
         span.glyphicon.glyphicon-star
     - for (i = level; i < 3; i++)
         span.glyphicon.glyphicon-star-empty
+
+mixin outputImage (gallerySlug,image)
+    a(href='https://s3.amazonaws.com/wargame-art/gallery/#{gallerySlug}/#{image.filename}')
+        img.img-responsive.gallery-thumb(src='https://s3.amazonaws.com/wargame-art/gallery/#{gallerySlug}/#{image.filename}' alt=image.alt)
+
+mixin outputThumb (gallery)
+    a(href='/gallery/#{gallery.slug}')
+        img.img-responsive(src='https://s3.amazonaws.com/wargame-art/gallery/#{gallery.slug}/#{gallery.mainImage.filename}' alt=gallery.mainImage.alt)
+
+mixin outputThumbInEntry (gallerySlug, image)
+    a(href='' data-image-path="https://s3.amazonaws.com/wargame-art/gallery/#{gallerySlug}/#{image.filename}")
+        img.img-responsive.image.entry-thumb(src='https://s3.amazonaws.com/wargame-art/gallery-thumbs-450/#{gallerySlug}/#{image.filename}' alt=image.alt)

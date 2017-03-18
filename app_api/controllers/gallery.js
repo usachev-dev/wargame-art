@@ -5,7 +5,7 @@ module.exports.galleryListByDate = function(req,res) {
     Gal
         .find()
         .sort({"publicationDate":-1})
-        .select('-images')
+        //.select('-images')
         .exec(function(err,entries){
             if(err){
                 sendJsonResponse(res, 404, err);
@@ -17,20 +17,17 @@ module.exports.galleryListByDate = function(req,res) {
 
 
 module.exports.entryCreate = function(req,res) {
-    var Images = req.body.images.split(',');
-    var imageResult=[];
-    for (image in Images) {
-        imageResult.push({filename:Images[image]});
-    }
+    console.log(req.body);
     dataToSave = {
         slug: req.body.slug,
         title: req.body.title,
         subtitle: req.body.subtitle,
         level: req.body.level,
+        description: req.body.description,
         system: req.body.system,
         genre: req.body.genre,
-        mainImage: {filename: req.body.mainImage},
-        images: imageResult
+        mainImage: req.body.mainImage,
+        images: req.body.images
     };
     Gal.create(dataToSave, function(err,entry){
         if (err) {

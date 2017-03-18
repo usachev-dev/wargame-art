@@ -1,19 +1,87 @@
 extends layout
 include _includes/sharedHTMLfunctions
+block gallery-button
+    li.active
+        a(href='/gallery/') Галерея миниатюр
 block content
-    .container
-        .row#banner
-            .col-xs-10.col-lg-6
-                h1=pageHeader.title
-                small &nbsp;#{pageHeader.strapline}
-        .row.no-gutter.gallery-row
-            .error=message
-            each gallery in galleries
-                .col-xs-12.col-sm-6.col-md-4.col-lg-3
-                    .gallery-entry
-                        a(href='/gallery/#{gallery.slug}')
-                            img.img-responsive(src="../images/#{gallery.mainImage.filename}" alt=gallery.mainImage.alt)
-                            .gallery-caption
-                                h2=gallery.title
-                                p=gallery.subtitle
-                                +outputLevel(gallery.level)
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
+    .container-fluid(ng-controller="galleryCtrl as gc" ng-cloak )
+        .col-xs-12.col-sm-9.col-lg-10
+            .row
+                #banner
+                    h1 {{gc.title}}
+                    small &nbsp;{{gc.strapline}}
+                    .error=message
+            .row.dynamic-grid(angular-grid="gc.showedGalleries"
+            ag-grid-width="300"
+            ag-gutter-size="5"
+            ag-id="gallery"
+            infinite-scroll="gc.loadGalleries()"
+            infinite-scroll-distance="0.2"
+            )
+                .gallery-entry(ng-repeat="gallery in gc.showedGalleries track by $index")
+                    a(href='/gallery/{{gallery.slug}}')
+                        img.img-responsive(ng-src='https://s3.amazonaws.com/wargame-art/gallery-thumbs-450/{{gallery.slug}}/{{gallery.mainImage.filename}}' alt='{{gallery.mainImage.alt}}')
+                        .gallery-caption
+                            h2 {{gallery.title}}
+                            p {{gallery.subtitle}}
+                            p  {{gallery.images.length}} more images
+                            small(level-icons,level="gallery.level")
+        .col-sm-3.col-lg-2.hidden-xs(ng-cloak)#searchbar
+            form
+                h2 {{gc.foundGalleries}}
+                .form-group.has-feedback
+                    label(for="textFilter") Search text
+                    input#textFilter(name="search" type="text" ng-model="textFilter").form-control
+                    i.glyphicon.glyphicon-search.form-control-feedback
+                .form-group
+                    h3 Filter systems:
+                    .checkbox(ng-repeat="system in gc.systems")
+                        label
+                            input(type="checkbox" ng-model="selectSystems[system.name]")
+                            span {{system.name}}
+                .form-group
+                    h3 Filter genres:
+                    .checkbox(ng-repeat="genre in gc.genres")
+                        label
+                            input(type="checkbox" ng-model="selectGenres[genre.name]")
+                            span {{genre.name}}
+                .form-group
+                    h3 Filter levels:
+                    .checkbox
+                        label
+                            input(type="checkbox" ng-model="selectLevels[1]")
+                            span 1
+                    .checkbox
+                        label
+                            input(type="checkbox" ng-model="selectLevels[2]")
+                            span 2
+                    .checkbox
+                        label
+                            input(type="checkbox" ng-model="selectLevels[3]")
+                            span 3
+
+block searchButton
+    button#searchButton.btn.btn-secondary.navbar-toggle
+        i.glyphicon.glyphicon-search
+
+block scripts
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src="../javascripts/masonry/angulargrid.min.js")
+    script(src="../javascripts/masonry/ng-infinite-scroll.min.js")
+    script(src="../javascripts/angular/wargame-art.js")
+    script(src="../javascripts/angular/galleryCtrl.js")
+    script(src="../javascripts/angular/orderCtrl.js")
+
+    script.
+        $("#searchButton").click(function(){
+            var element = angular.element($('#searchbar'));
+            var controller = element.controller();
+            var scope = element.scope();
+
+            scope.$apply(function(){
+                controller.searchbarToggle();
+            })
+            //$("#gallery").scope().sidebarHidden="active";
+        });

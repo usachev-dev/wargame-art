@@ -21,3 +21,19 @@ module.exports.about = function (req,res){
         ]
     });
 };
+
+module.exports.price = function (req,res){
+    res.render('price', {
+        title:'Wargame Art',
+        slogan: 'Best miniature painting service',
+        buttonCaption: 'Order our service'
+    });
+};
+
+module.exports.contacts = function (req,res){
+    res.render('contacts', {
+        title:'Wargame Art',
+        slogan: 'Best miniature painting service',
+        buttonCaption: 'Order our service'
+    });
+};

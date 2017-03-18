@@ -8,13 +8,13 @@ if (process.env.NODE_ENV === 'production'){
     apiOptions.server = "https://wargame-art.herokuapp.com";
 }
 
-var renderGallery = function (req,res,responseBody){
+var renderGallery = function (req,res,galleries,systems,genres){
     var message;
-    if (!(responseBody instanceof Array)) {
+    if (!(galleries instanceof Array)) {
         message = "API lookup error";
         responseBody = [];
     } else {
-        if (!responseBody.length) {
+        if (!galleries.length) {
             message = "No galleries to display";
         }
     }
@@ -24,7 +24,9 @@ var renderGallery = function (req,res,responseBody){
             title:'Our painted miniatures',
             strapline: 'all of them in a gallery'
         },
-        galleries:  responseBody,
+        galleries:  galleries,
+        systems: systems,
+        genres: genres,
         message: message
     });
 };
@@ -42,6 +44,7 @@ var renderEntry = function (req,res,responseBody){
 
     }
     res.render('entry', {
+        slug:  responseBody.slug,
         message: message,
         title: responseBody.title,
         subtitle: responseBody.subtitle,
@@ -56,7 +59,9 @@ var renderEntry = function (req,res,responseBody){
 
 };
 
-
+module.exports.galleryAngular = function(req,res){
+    res.render("gallery");
+};
 
 module.exports.entry = function (req,res){
     var slug;
@@ -79,21 +84,52 @@ module.exports.entry = function (req,res){
 };
 
 module.exports.gallery = function (req,res){
-    var requestOptions;
-    var path;
-    path = '/api/gallery';
-    requestOptions = {
-        url: apiOptions.server + path,
+    var requestOptions1,requestOptions2, requestOptions3;
+    var path1, path2, path3;
+    var galleries, systems, genres;
+    path1='/api/gallery';
+    path2='/api/systems';
+    path3='/api/genres';
+
+    requestOptions1 = {
+        url: apiOptions.server + path1,
         method: "GET",
         json: {}
     };
-    request(requestOptions, function (err,response,body){
-        if (response.statusCode === 200 && body) {
-            renderGallery(req, res, body);
-        } else {
-            _showError(req,res,response.statusCode);
-        }
-    });
+    requestOptions2 = {
+        url: apiOptions.server + path2,
+        method: "GET",
+        json: {}
+    };
+    requestOptions3 = {
+        url: apiOptions.server + path3,
+        method: "GET",
+        json: {}
+    };
+
+    var queue = function (){
+        request(requestOptions1, function (err,response,body){
+            if (response.statusCode === 200 && body) {
+                galleries = body;
+                request(requestOptions2, function (err,response,body){
+                    if (response.statusCode === 200 && body) {
+                        systems = body;
+                        request(requestOptions3, function (err,response,body){
+                            if (response.statusCode === 200 && body) {
+                                genres = body;
+                                renderGallery(req, res, galleries, systems, genres);
+                            } else {
+                                _showError(req,res,response.statusCode);
+                            }});
+                    } else {
+                        _showError(req,res,response.statusCode);
+                    }});
+            } else {
+                _showError(req,res,response.statusCode);
+            }});
+    };
+
+    queue();
 };
 
 var _showError = function (req,res, status){

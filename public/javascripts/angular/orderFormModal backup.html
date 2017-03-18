@@ -1,0 +1,54 @@
+<form class="form-horizontal" method="post" action="/api/order" role="form">
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-3" for="name">Имя</label>
+        <div class="col-xs-12 col-sm-6">
+            <input class="form-control" id="name" type="text" name="name"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-3" for="phone">Телефон</label>
+        <div class="col-xs-12 col-sm-6">
+            <input class="form-control" id="phone" type="text" name="phone"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-3" for="email">E-mail</label>
+        <div class="col-xs-12 col-sm-6">
+            <input class="form-control" id="email" type="text" name="email"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-3" for="minis">Миниатюры</label>
+        <div class="col-xs-12 col-sm-9">
+            <textarea class="form-control" id="minis" name="minis"></textarea><span class="help-block">Дайте ссылки на те миниатюры, покраску которых хотите заказать</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12 col-xs-offset-0 col-sm-offset-3">
+            <label>
+                <input id="assembly" name="assembly" type="checkbox"/><span class="normal"> Требуется сборка</span>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-12 col-sm-3 control-label" for="level">Уровень покраски</label>
+        <div class="col-xs-12 col-sm-9">
+            <select class="form-control" id="level" type="select" name="level">
+                <option value="1">1. Орда</option>
+                <option value="2">2. Оптимальный</option>
+                <option value="3">3. Художественный</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-xs-12 col-sm-3" for="comments">Примечания</label>
+        <div class="col-xs-12 col-sm-9">
+            <textarea class="form-control" id="comments" name="comments"></textarea><span class="help-block">Цветовая схема и любые конкретные требования и пожелания</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-2 col-xs-offset-3">
+            <button class="btn btn-primary" type="submit">Отправить</button>
+        </div>
+    </div>
+</form>

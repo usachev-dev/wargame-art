@@ -2,31 +2,72 @@ extends layout
 include _includes/sharedHTMLfunctions
 
 block content
-    .container
-        .error=message
-        h1=title
-        h3=subtitle
-        p
-            bold System:&nbsp;
-            span=system
-        p
-            bold Genre:&nbsp;
-            span=genre
-        p
-            bold Level:&nbsp;
-            span
-                +outputLevel(level)
-        p
-            bold Published:&nbsp;
-            span=publicationDate
-        .row
-            .col-xs-12
-                .entry.entry-main
-                    a(href='../images/#{mainImage.filename}')
-                        img.img-responsive(src='../images/#{mainImage.filename}' alt=mainImage.alt)
-        .row
-            each image in images
-                .col-xs-12.col-sm-6.col-md-4
-                    .entry.entry-thumbnail
-                        a(href='../images/#{image.filename}')
-                            img.img-responsive(src='../images/#{image.filename}' alt=image.alt)
+    script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
+    .container-fluid(ng-controller="entryCtrl as ec")
+        .col-xs-12.col-sm-9.col-lg-10
+            .row
+                .entry-main
+                    a(href='' ng-click='ec.openImageModal($event)' data-image-path="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{ec.entry.mainImage.filename}}")
+                        img.img-responsive.image.entry-thumb(ng-src='https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{ec.entry.mainImage.filename}}' alt='{{ec.entry.mainImage.alt}}')
+            .row.dynamic-grid(angular-grid="ec.entry.images"
+            ag-grid-width="315"
+            ag-gutter-size="0"
+            ag-id="images"
+            )
+                .gallery-entry.entry-thumb(ng-repeat="image in ec.entry.images")
+                    a(ng-click='ec.openImageModal($event)' href='' data-image-path="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{image.filename}}")
+                        img.img-responsive.image.entry-thumb(ng-src='https://s3.amazonaws.com/wargame-art/gallery-thumbs-450/{{ec.entry.slug}}/{{image.filename}}' alt='{{image.alt}}')
+        .col-sm-3.col-lg-2.hidden-xs.side-info(ng-cloak)
+            .error=message
+            h1=title
+            h3=subtitle
+            p
+                bold System:&nbsp;
+                span=system
+            p
+                bold Genre:&nbsp;
+                span=genre
+            p
+                bold Level:&nbsp;
+                span
+                    +outputLevel(level)
+            p
+                bold Published:&nbsp;
+                span=publicationDate
+            p
+                bold Description:&nbsp;
+                span=description
+        #image-modal.closed(ng-class="ec.modal.state")
+            button(type="button" ng-click="ec.closeImageModal()").close-button
+                span.glyphicon-remove.glyphicon
+            #closing-area(ng-click="ec.closeImageModal()")
+            .image-wrap
+                img(ng-src="{{ec.modal.image}}")
+                button.arrow.prev
+                    span.glyphicon.glyphicon-chevron-left
+                button.arrow.next
+                    span.glyphicon.glyphicon-chevron-right
+
+
+
+
+block scripts
+    script(src='/bootstrap/js/bootstrap.min.js')
+    script(src="../javascripts/masonry/angulargrid.min.js")
+    script(src="../javascripts/masonry/ng-infinite-scroll.min.js")
+    script(src="../javascripts/angular/wargame-art.js")
+    script(src="../javascripts/angular/orderCtrl.js")
+    script(src="../javascripts/angular/entryCtrl.js")
+
+
+
+    script.
+        //function get
+        $(document).ready(function(){});
+        $('.image-wrap').mouseover(function () {
+            $('.close-button').removeClass('active');
+        });
+        $('.image-wrap').mouseleave(function () {
+            $('.close-button').addClass('active');
+        });

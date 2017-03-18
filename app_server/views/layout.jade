@@ -5,30 +5,63 @@ html
         title=title
         link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
-    body
-        .navbar.navbar-default.navbar-static-top
-            .container
+
+    body(ng-app="wargame-art")
+        .navbar.navbar-default.navbar-fixed-top
+            .container-fluid
                 .navbar-header
                     a.navbar-brand(href='/') Wargame Art
                     button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-main')
                         span.icon-bar
                         span.icon-bar
                         span.icon-bar
+                        span.icon-bar
+                    block searchButton
                 #navbar-main.navbar-collapse.collapse
-                    ul.nav.nav.navbar-nav
-                        li
-                            a(href='/gallery/') Gallery
-                        li
-                            a(href='/gallery/new') Add to gallery
-                        li
-                            a(href='/about/') About
-                        li
-                            a(href='/order/') Make an order
-        block content
+                    ul.nav.navbar-nav
+                        block gallery-button
+                            li
+                                a(href='/gallery/') Галерея миниатюр
+                        block about-button
+                            li
+                                a(href='/about/') О нас
+                        block contacts-button
+                            li
+                                a(href='/contacts/') Контакты
+                        block price-button
+                            li
+                                a(href='/price/') Цены
+                        block order-button
+                            li
+                                a#order-button(href='' data-toggle="modal" data-target="#order-modal") Заказать покраску
+        #order-modal.modal.fade(role="dialog")
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button(type="button" data-dismiss="modal").close &times
+                        h4.modal-title Сделать заказ
+                    .modal-body
+                        div(ng-include="'../javascripts/angular/orderFormModal.html'")
+        .main
+            block content
+
         footer
-            .container
-                .row
+            .container-fluid
+                .row(style="z-index: 1")
                     .col-xs-12
                         small &copy; Alexey Usachev
-        script(src='/javascripts/jquery/jquery-3.1.1.min.js')
-        script(src='/bootstrap/js/bootstrap.min.js')
+
+        block scripts
+            script(src="https://code.jquery.com/jquery-3.1.1.min.js")
+            script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
+            script(src="../javascripts/masonry/angulargrid.min.js")
+            script(src="../javascripts/masonry/ng-infinite-scroll.min.js")
+            script(src='/bootstrap/js/bootstrap.min.js')
+            script(src="../javascripts/angular/wargame-art.js")
+            script(src="../javascripts/angular/orderCtrl.js")
+          //  script.
+                $(document).ready(function(){
+                    $("#order-button").click(function(){
+                        $('#order-modal').modal('toggle');
+                    });
+                });
