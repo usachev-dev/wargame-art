@@ -10,12 +10,11 @@ block content
         .col-xs-12.col-sm-9.col-lg-10
             .row
                 #banner
-                    h1 {{gc.title}}
-                    small &nbsp;{{gc.strapline}}
+                    h1 Галерея наших работ
                     .error=message
             .row.dynamic-grid(angular-grid="gc.showedGalleries"
             ag-grid-width="300"
-            ag-gutter-size="5"
+            ag-gutter-size="10"
             ag-id="gallery"
             infinite-scroll="gc.loadGalleries()"
             infinite-scroll-distance="0.2"
@@ -23,44 +22,46 @@ block content
                 .gallery-entry(ng-repeat="gallery in gc.showedGalleries track by $index")
                     a(href='/gallery/{{gallery.slug}}')
                         img.img-responsive(ng-src='https://s3.amazonaws.com/wargame-art/gallery-thumbs-450/{{gallery.slug}}/{{gallery.mainImage.filename}}' alt='{{gallery.mainImage.alt}}')
-                        .gallery-caption
-                            h2 {{gallery.title}}
+                        .caption
+                            h3 {{gallery.title}}
+                            p {{gallery.genre}}, {{gallery.system}}
+                                span(style="float: right").photos {{gallery.images.length+1}}&nbsp;
+                                    span.glyphicon.glyphicon-camera
                             p {{gallery.subtitle}}
-                            p  {{gallery.images.length}} more images
                             small(level-icons,level="gallery.level")
         .col-sm-3.col-lg-2.hidden-xs(ng-cloak)#searchbar
             form
                 h2 {{gc.foundGalleries}}
                 .form-group.has-feedback
-                    label(for="textFilter") Search text
+                    label(for="textFilter") Поиск
                     input#textFilter(name="search" type="text" ng-model="textFilter").form-control
                     i.glyphicon.glyphicon-search.form-control-feedback
                 .form-group
-                    h3 Filter systems:
+                    h3 Игровые системы:
                     .checkbox(ng-repeat="system in gc.systems")
                         label
                             input(type="checkbox" ng-model="selectSystems[system.name]")
                             span {{system.name}}
                 .form-group
-                    h3 Filter genres:
+                    h3 Жанры:
                     .checkbox(ng-repeat="genre in gc.genres")
                         label
                             input(type="checkbox" ng-model="selectGenres[genre.name]")
                             span {{genre.name}}
                 .form-group
-                    h3 Filter levels:
+                    h3 Уровень покраски:
                     .checkbox
                         label
                             input(type="checkbox" ng-model="selectLevels[1]")
-                            span 1
+                            span Орда
                     .checkbox
                         label
                             input(type="checkbox" ng-model="selectLevels[2]")
-                            span 2
+                            span Оптимальный
                     .checkbox
                         label
                             input(type="checkbox" ng-model="selectLevels[3]")
-                            span 3
+                            span Художественный
 
 block searchButton
     button#searchButton.btn.btn-secondary.navbar-toggle

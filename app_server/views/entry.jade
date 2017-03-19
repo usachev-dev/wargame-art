@@ -4,20 +4,20 @@ include _includes/sharedHTMLfunctions
 block content
     script(src="https://code.jquery.com/jquery-3.1.1.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
-    .container-fluid(ng-controller="entryCtrl as ec")
+    .container-fluid#pictures(ng-controller="entryCtrl as ec")
         .col-xs-12.col-sm-9.col-lg-10
             .row
                 .entry-main
-                    a(href='' ng-click='ec.openImageModal($event)' data-image-path="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{ec.entry.mainImage.filename}}")
-                        img.img-responsive.image.entry-thumb(ng-src='https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{ec.entry.mainImage.filename}}' alt='{{ec.entry.mainImage.alt}}')
+                    a(href="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{ec.entry.mainImage.filename}}" ng-click='ec.openImageModal($event); $event.preventDefault(); $event.stopPropagation();' data-image-path="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{ec.entry.mainImage.filename}}")
+                        img#mainImage.img-responsive.image.entry-thumb(ng-src='https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{ec.entry.mainImage.filename}}' imageonload alt='{{ec.entry.mainImage.alt}}')
             .row.dynamic-grid(angular-grid="ec.entry.images"
             ag-grid-width="315"
-            ag-gutter-size="0"
+            ag-gutter-size="10"
             ag-id="images"
             )
-                .gallery-entry.entry-thumb(ng-repeat="image in ec.entry.images")
-                    a(ng-click='ec.openImageModal($event)' href='' data-image-path="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{image.filename}}")
-                        img.img-responsive.image.entry-thumb(ng-src='https://s3.amazonaws.com/wargame-art/gallery-thumbs-450/{{ec.entry.slug}}/{{image.filename}}' alt='{{image.alt}}')
+                .entry-thumb(ng-repeat="image in ec.entry.images")
+                    a(href="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{image.filename}}" ng-click='ec.openImageModal($event); $event.preventDefault(); $event.stopPropagation();' data-image-path="https://s3.amazonaws.com/wargame-art/gallery/{{ec.entry.slug}}/{{image.filename}}")
+                        img.img-responsive.image.entry-thumb(ng-src='https://s3.amazonaws.com/wargame-art/gallery-thumbs-450/{{ec.entry.slug}}/{{image.filename}}' imageonload alt='{{image.alt}}')
         .col-sm-3.col-lg-2.hidden-xs.side-info(ng-cloak)
             .error=message
             h1=title
@@ -38,15 +38,15 @@ block content
             p
                 bold Description:&nbsp;
                 span=description
-        #image-modal.closed(ng-class="ec.modal.state")
+        #image-modal.closed
             button(type="button" ng-click="ec.closeImageModal()").close-button
                 span.glyphicon-remove.glyphicon
             #closing-area(ng-click="ec.closeImageModal()")
             .image-wrap
                 img(ng-src="{{ec.modal.image}}")
-                button.arrow.prev
+                button.arrow.prev(ng-click="ec.prevImageInModal()")
                     span.glyphicon.glyphicon-chevron-left
-                button.arrow.next
+                button.arrow.next(ng-click="ec.nextImageInModal()")
                     span.glyphicon.glyphicon-chevron-right
 
 
@@ -71,3 +71,12 @@ block scripts
         $('.image-wrap').mouseleave(function () {
             $('.close-button').addClass('active');
         });
+        imageLoaded = function() {
+            var element = angular.element($('#mainImage'));
+            var controller = element.controller();
+            var scope = element.scope();
+
+            scope.$apply(function () {
+                controller.imageLoaded();
+            });
+        };

@@ -3,7 +3,7 @@
         <div class="form-group"
              ng-class="{'has-error':orderForm.name.$error.required && orderForm.name.$dirty,
                         'has-success':!orderForm.name.$error.required && orderForm.name.$dirty}">
-            <label class="control-label col-xs-12 col-sm-3" for="name">Имя*</label>
+            <label class="control-label col-xs-12 col-sm-3" for="name">Имя<span style="color: red">*</span></label>
             <div class="col-xs-12 col-sm-6">
                 <input class="form-control" id="name" type="text" name="name" ng-model="oc.orderData.name" required autofocus/>
                 <small class="help-block" ng-show="orderForm.name.$error.required && orderForm.name.$dirty">Имя - обязательное поле</small>
@@ -11,8 +11,8 @@
         </div>
         <div class="form-group"
              ng-class="{'has-error':orderForm.phone.$error.required && orderForm.phone.$dirty,
-                        'has-success':!orderForm.phone.$error.required && orderForm.phone.$dirty}">
-            <label class="control-label col-xs-12 col-sm-3" for="phone">Телефон*</label>
+                        'has-success':!orderForm.phone.$error.required && orderForm.phone.$dirty && oc.orderData.phone!==''}">
+            <label class="control-label col-xs-12 col-sm-3" for="phone">Телефон<span style="color: red">*</span></label>
             <div class="col-xs-12 col-sm-6">
                 <div class="input-group">
                     <div class="input-group-addon">+7</div>
@@ -21,8 +21,9 @@
                 <small class="help-block" ng-show="orderForm.phone.$error.required && orderForm.phone.$dirty">Для подтверждения заказа требуется телефон</small>
             </div>
         </div>
-        <div class="form-group" ng-class="{'has-error':(orderForm.email.$invalid || orderForm.email.$error.required) && orderForm.email.$dirty}">
-            <label class="control-label col-xs-12 col-sm-3" for="email">E-mail*</label>
+        <div class="form-group" ng-class="{'has-error':(orderForm.email.$invalid || orderForm.email.$error.required) && orderForm.email.$dirty,
+                                           'has-success':(!orderForm.email.$invalid && !orderForm.email.$error.required) && orderForm.email.$dirty}">
+            <label class="control-label col-xs-12 col-sm-3" for="email">E-mail<span style="color: red">*</span></label>
             <div class="col-xs-12 col-sm-6">
                 <input class="form-control" id="email" type="email" name="email" required ng-model="oc.orderData.email" ng-model-options="{updateOn:'blur'}"/>
                 <small class="help-block" ng-show="orderForm.email.$error.required && orderForm.email.$dirty">Для оформления заказа необходим email</small>
@@ -32,7 +33,7 @@
         <div class="form-group">
             <label class="control-label col-xs-12 col-sm-3" for="minis">Миниатюры</label>
             <div class="col-xs-12 col-sm-9">
-                <textarea class="form-control" id="minis" name="minis" ng-model="oc.orderData.minis"></textarea><span class="help-block">Cсылки на те миниатюры, покраску которых Вы хотите заказать</span>
+                <textarea class="form-control" id="minis" name="minis" ng-model="oc.orderData.minis"></textarea><span class="help-block">Миниатюры, покраску которых Вы хотите заказать</span>
             </div>
         </div>
         <div class="form-group">
@@ -66,7 +67,7 @@
         <div class="form-group">
             <label class="control-label col-xs-12 col-sm-3" for="comments">Примечания</label>
             <div class="col-xs-12 col-sm-9">
-                <textarea class="form-control" id="comments" name="comments" ng-model="oc.orderData.comments"></textarea><span class="help-block">Цветовая схема и любые конкретные требования и пожелания</span>
+                <textarea class="form-control" id="comments" name="comments" ng-model="oc.orderData.comments"></textarea><span class="help-block">Цветовая схема и любые требования и пожелания</span>
             </div>
         </div>
         <div class="form-group">

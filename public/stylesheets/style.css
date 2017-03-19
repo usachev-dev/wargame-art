@@ -1,40 +1,78 @@
+@font-face {
+  font-family: "molotregular";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/Molot-webfont.eot"), url("../fonts/Molot-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Molot-webfont.woff") format("woff"), url("../fonts/Molot-webfont.ttf") format("truetype"), url("../fonts/Molot-webfont.svg") format("svg");
+}
+
 .normal {
   font-weight: normal;
 }
 
 .main {
   padding-top: 50px;
+  background-color: #eeeeee;
 }
 
 .gallery-entry {
   display: block;
   background-color: #f0f0f0;
   border-radius: 10px;
-  padding: 5px;
-}
-
-.gallery-entry img {
-  border-radius: 10px;
-  margin: auto;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .gallery-entry:hover {
-  background-color: #707070;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
 }
 
-.gallery-entry:hover .gallery-caption {
-  display: inline;
+.gallery-entry a {
+  text-decoration: none;
+}
+
+.gallery-entry img {
+  border-radius: 10px 10px 0px 0px;
+  margin: auto;
+}
+
+.gallery-entry .caption {
+  border-radius: 0px 0px 10px 10px;
+  background: white;
+  padding: 10px;
+  color: black;
+}
+
+.gallery-entry .caption p {
+  font-size: 14px;
+  line-height: 16px;
+  color: #333;
+}
+
+.gallery-entry .caption h3 {
+  margin-top: 3px;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.gallery-entry .caption span.photos {
+  color: gray;
 }
 
 .entry-main img {
-  margin: auto;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  padding: 5px;
+  margin: 15px auto;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
 }
 
 .entry-main img:hover {
-  background-color: #707070;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+.entry-thumb {
+  border-radius: 10px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
+}
+
+.entry-thumb:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
 }
 
 .entry {
@@ -60,16 +98,89 @@
   padding-left: 5px;
 }
 
-.gallery-caption {
-  position: absolute;
-  bottom: 6px;
-  right: 11px;
-  border-radius: 10px 0px;
+#order-button {
+  display: inline-block;
+  background-color: #C52525;
   color: white;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 5px;
-  padding-left: 15px;
-  display: none;
+  border-radius: 4px;
+  border-style: solid;
+  border: 1px;
+  border-color: #C52525;
+  padding: 6px 12px;
+  margin-top: 7px;
+}
+
+#order-button:hover {
+  background-color: #FF7D7D;
+}
+
+.red-button {
+  background-color: #C52525;
+  color: white;
+  border-style: solid;
+  border: 1px;
+  border-color: #C52525;
+}
+
+.red-button:focus {
+  color: white;
+}
+
+.red-button:hover {
+  background-color: #FF7D7D;
+  color: white;
+}
+
+.navbar-brand {
+  font-family: "molotregular";
+  color: white !important;
+  text-shadow: 0 0 8px black;
+}
+
+.navbar-brand .w {
+  color: #C52525;
+}
+
+.jumbotron {
+  background: url("https://s3.amazonaws.com/wargame-art/jumbotron/jumbotron6.jpg") center top no-repeat;
+  background-color: black;
+  color: white;
+}
+
+.jumbotron h1 {
+  font-family: molotregular;
+}
+
+.jumbotron h1 .w {
+  color: #C52525;
+}
+
+.homerow {
+  text-align: center;
+}
+
+.homerow .homepage-example {
+  max-width: 300px;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
+}
+
+.homerow .homepage-example img {
+  border-radius: 4px 4px 0 0;
+}
+
+.homerow a h3 {
+  color: black;
+}
+
+.homerow a:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+}
+
+.homerow a p:hover {
+  text-decoration: underline;
 }
 
 .gallery-thumb {
@@ -102,7 +213,7 @@
 
 #image-modal {
   position: fixed;
-  top: 30px;
+  top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -111,8 +222,8 @@
   justify-content: center;
   align-items: center;
   resize: both;
-  overflow: auto;
   cursor: pointer;
+  z-index: 1050;
 }
 
 #image-modal #closing-area {
@@ -128,8 +239,8 @@
 
 #image-modal .close-button {
   position: fixed;
-  top: 55px;
-  right: 0px;
+  top: 3px;
+  right: 3px;
   z-index: 99999;
   text-align: right;
   background-color: Transparent;
@@ -147,13 +258,13 @@
 
 @media (max-width: 767px) {
   #image-modal .close-button span {
-    font-size: 16px;
+    font-size: 25px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   #image-modal .close-button span {
-    font-size: 25px;
+    font-size: 30px;
   }
 }
 
@@ -174,6 +285,7 @@
   display: flex;
   resize: both;
   overflow: auto;
+  width: 100%;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -204,13 +316,13 @@
 
 @media (max-width: 767px) {
   #image-modal .image-wrap .arrow span {
-    font-size: 16px;
+    font-size: 25px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
   #image-modal .image-wrap .arrow span {
-    font-size: 25px;
+    font-size: 30px;
   }
 }
 
