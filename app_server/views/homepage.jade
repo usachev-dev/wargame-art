@@ -1,78 +1,174 @@
+//- var br = '<br />'
 extends layout
 block content
-    .jumbotron
-        .container
-            .row
-                h1
-                    span.w W
-                    span argame Art
-                p Покраска миниатюр на заказ
-                button.btn.red-button(href='' data-toggle="modal" data-target="#order-modal") Сделать заказ
-    .container
-        .row.homerow#what
-            h2 Красим миниатюры любых систем и масштабов
-            .col-xs-12.col-sm-4
-                a(href="/gallery/#?systems=Warhammer%2040k")
-                   h3 Warhammer 40k
-                   .homepage-example
-                       img.img-responsive(src="https://s3.amazonaws.com/wargame-art/jumbotron/%D0%91%D0%B5%D0%B7+%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-3.jpg")
-                       p Перейти в галерею
-            .col-xs-12.col-sm-4
-                a(href="/gallery/#?systems=Warhammer%20FB%20%2F%20AOS")
-                    h3 Fantasy / AOS
-                    .homepage-example
-                        img.img-responsive(src="https://s3.amazonaws.com/wargame-art/jumbotron/%D0%91%D0%B5%D0%B7+%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-4.jpg")
-                        p Перейти в галерею
-            .col-xs-12.col-sm-4
-                a(href="/gallery/#?systems=Warmachine%20%26%20Hordes")
-                    h3 Warmachine & Hordes
-                    .homepage-example
-                        img.img-responsive(src="https://s3.amazonaws.com/wargame-art/jumbotron/%D0%91%D0%B5%D0%B7+%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-5.jpg")
-                        p Перейти в галерею
-        .row.homerow#how
-            .col-xs-12
-                h2 Как это происходит?
-            .col-xs-12.col-sm-4
-                div
-                    h3 Заполняете&nbsp;
-                        button.btn.red-button(href='' data-toggle="modal" data-target="#order-modal") форму заказа
-            .col-xs-12.col-sm-4
-                div
-                    h3 Передаете модели художнику
-            .col-xs-12.col-sm-4
-                div
-                    h3 Получаете готовые миниатюры и оплачиваете
-        .row.homerow#how-much
-            .col-xs-12
-                h2 Сколько это стоит?
-                p Все миниатюры разные по сложности и объему покраски, поэтому за отправную точку мы берем то, как оценивает ее сам производитель.
-                p Есть три уровня покраски:
-            .col-xs-12.col-sm-4
-                h3 Орда
-            .col-xs-12.col-sm-4
-                h3 Оптимальный
-            .col-xs-12.col-sm-4
-                h3 Художественный
-        .row.homerow#why
-            .col-xs-12
-                h2 Почему клиенты выбирают нас?
-            .col-xs-12.col-sm-4
-                h3 Понятные цены
-            .col-xs-12.col-sm-4
-                h3 Миниатюры любых систем
-            .col-xs-12.col-sm-4
-                h3 Профессиональный подход
-        .row.homerow#testimonies
-            .col-xs-12
-                h2 Вот что говорят наши клиенты
-            .col-xs-12.col-sm-4
-                h3 Витя
-            .col-xs-12.col-sm-4
-                h3 Сережа
-            .col-xs-12.col-sm-4
-                h3 Влад
-        .row.homerow#questions
-            .col-xs-12
-                h2 Если у вас любые вопросы, можете задать их&nbsp;
-                    button.btn.red-button здесь
-                    p или по телефону 932493249239
+    .homepage
+        .jumbotron
+            .container-fluid
+                .row
+                    .col-xs-12.col-sm-8.col-md-5.col-md-offset-1
+                        h1
+                            span.red-text W
+                            span argame Art
+                        p.
+                            Покраска миниатюр и целых армий на заказ в короткие сроки.#[br]
+                            Warhammer, AOS, Warmachine, настольные игры#[br]
+                            и любые другие модели.
+                        button.btn.red-button(href='' data-toggle="modal" data-target="#order-modal") СДЕЛАТЬ ЗАКАЗ
+        .container-fluid
+            .row.white#why
+                .col-xs-12
+                    h2 Почему клиенты выбирают нас?
+                .col-xs-12.col-sm-6.col-md-3
+                    .group
+                        .red-circle
+                            span.fa.fa-rub
+                        h3 Понятные и низкие цены
+                        p Цена на покраску модели определяется ее ценой у производителя.
+                .col-xs-12.col-sm-6.col-md-3
+                    .group
+                        .red-circle
+                            span.fa.fa-clock-o
+                        h3 Быстрая работа
+                        p Никакой очереди - мы сразу беремся за ваш заказ. Армия на турнирный формат за месяц — это вполне реально!
+                .col-xs-12.col-sm-6.col-md-3
+                    .group
+                        .red-circle
+                            span.fa.fa-search
+                        h3 Внимание к деталям
+                        p Мы всегда предельно внимательны к пожеланиям заказчиков и четко выдерживаем цветовую схему.
+                .col-xs-12.col-sm-6.col-md-3
+                    .group
+                        .red-circle
+                            span.fa.fa-users
+                        h3 Большие армии
+                        p Мы любим большие армии и не боимся за них браться! Многие художники устают от больших объемов похожих моделей, но не мы. Чем больше армия, тем лучше!
+            .row.grey#systems
+                .col-xs-12
+                    h2 Красим любые игровые системы
+                .col-xs-12.col-sm-4#fb
+                    .logo
+                        img.img-responsive(src='https://s3.amazonaws.com/wargame-art/images/homepage/fb-logo.png' alt="Warhammer Fantasy / Age of Sigmar")
+                    img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/fb-small.jpg")
+                    a(href="/gallery/#?systems=Warhammer%20FB%20%2F%20AOS") Перейти в галерею
+                .col-xs-12.col-sm-4#wh40k
+                    .logo
+                        img.img-responsive(src='https://s3.amazonaws.com/wargame-art/images/homepage/40k-logo.png' alt="Warhammer 40k")
+                    img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/40k-small.jpg")
+                    a(href="/gallery/#?systems=Warhammer%2040k") Перейти в галерею
+                .col-xs-12.col-sm-4#warmachine
+                    .logo
+                        img.img-responsive(src='https://s3.amazonaws.com/wargame-art/images/homepage/warmachine-logo.png' alt="Warmachine and Hordes")
+                    img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/warmachine-small.jpg")
+                    a(href="/gallery/#?systems=Warmachine%20%26%20Hordes") Перейти в галерею
+            .row.white#price
+                .col-xs-12
+                    h2 Цены
+                    p#text.
+                        За отправную точку мы берем то, как миниатюру оценивает сам производитель. Чем дешевле модель, тем проще нам ее покрасить, и наоборот.#[br]
+                        Сборка стоит половину от стоимости моделей, независимо от уровня покраски. Оформление баз и лакировка — бесплатно.#[br]
+                        Есть <span>три уровня</span> покраски:
+                .row
+                    .col-xs-12.col-sm-4#horde
+                        .group
+                            img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/horde-small.jpg")
+                            .red-circle.left
+                                span.fa.fa-times.mult
+                                span 1
+                            .red-circle.right
+                                span.fa.fa-users
+                        h3 Орда
+                        h4.
+                            Цена модели <span class="red-text" style="font-weight: bold"><span class="fa fa-times"></span>1</span>
+                        p Покраска стоит столько же, сколько и сама модель. Отличный выбор для больших армий, или если вам не терпится поиграть.
+                        a(href="/gallery/#?levels=1") Перейти в галерею
+                    .col-xs-12.col-sm-4#optimal
+                        .group
+                            img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/optimal-small.jpg")
+                            .red-circle.left
+                                span.fa.fa-times.mult
+                                span 2
+                            .red-circle.right
+                                span.fa.fa-thumbs-up
+                        h3 Оптимальный
+                        h4.
+                            Цена модели <span class="red-text" style="font-weight: bold"><span class="fa fa-times"></span>2</span>
+                        p Хорошая покраска с проработкой деталей. Сочные контрастные цвета, световые эффекты. Ваши модели будут отлично выглядеть на столе и на полке.
+                        a(href="/gallery/#?levels=2") Перейти в галерею
+                    .col-xs-12.col-sm-4#art
+                        .group
+                            img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/art-small.jpg")
+                            .red-circle.left
+                                span.fa.fa-times.mult
+                                span 3
+                            .red-circle.right
+                                span.fa.fa-paint-brush
+                        h3 Художественный
+                        h4.
+                            От цены модели <span class="red-text" style="font-weight: bold"><span class="fa fa-times"></span>3</span>
+                        p Лучшая покраска: Отличный выбор для героев вашей армии или моделей в подарок. Максимальная проработка деталей, продвинутые техники. Все  детали заказов этого уровня обговариваются индивидуально.
+                        a(href="/gallery/#?levels=3") Перейти в галерею
+
+            .row.red#customers
+                .row
+                    .col-xs-12
+                        h2 Отзывы клиентов
+                .row
+                    .container
+                        .col-xs-12.col-md-8.col-md-offset-2
+                            img(src="https://s3.amazonaws.com/wargame-art/images/homepage/sergei-denisov.jpg")
+                            h3 Сергей Денисов
+                            p.
+                                Пользуюсь услугами Алексея более 2 лет. Мачтер всегда четко следут пожеланиям заказчика, имеет гибкий диапазон уровня покраски для каждой модели. Из самого удивительного - Алексей НИ РАЗУ не просрочил дату выполнения заказа вне зависимости от размера и сложности исполнения. Также, ни разу не было проблоемы связаться с ним и уточнить детали по заказу. Очень рекомнедую услуги Алексея всем, кто хочет получить качественный покрас в конкретные сроки.
+                        .col-xs-12.col-md-8.col-md-offset-2
+                            img(src="https://s3.amazonaws.com/wargame-art/images/homepage/victor-leonov.jpg")
+                            h3 Виктор Леонов
+                            p.
+                                Заказываю у Алексея покраску армий с самого начала своего увлечения хобби. Чуть больше года. За это время он мне покрасил всю мою армию тау. Армия выиграла приз "best paint army" на турнире в клубе Юнион. Так же армию бладов и серых рыцарей + 3 имперских рыцарей. Все работы выполняются качественно и без задержек. Причем уровень покраски очень хорош, начиная от простой игровухи и заканчивая художкой. Сейчас Алексей начал красить мне маску арлекинов. В лучших традициях этих парней, со всеми ромбиками и рюшечками, пока всем доволен =). В Москве трудно найти художника, работы которого лучше по соотношению цена/качество/сроки выполнения.
+                        .col-xs-12.col-md-8.col-md-offset-2
+                            img(src="https://s3.amazonaws.com/wargame-art/images/homepage/vlad-kravchuk.jpg")
+                            h3 Владислав Кравчук
+                            p.
+                                Меня полностью удовлетворило соотношение цена-качество. Скорость работы соответствовала моим запросам. Все замечания устранялись в полном объеме и конечный продукт меня в итоге полностью устраивал. В сумме было качественно собрано и открашено более чем на 100 очков Крикса. Все миниатюры отлично смотрятся на столе. Выдержана единая композиция. Подставки оформлены и органично смотрятся в общей тематике армии.
+                                В дальнейшем планирую продолжить сотрудничество с Алексеем. На мой взгляд, на сегодняшний день, это лучший художник, предлагающий профессиональный покрас миниатюр в Москве для стола.
+            .row.white#master
+                .container
+                    .col-xs-12
+                        h2 Мастер
+                    .col-xs-12.col-md-3
+                        img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/alexey-usachev.jpg")
+                    .col-xs-12.col-md-9
+                        h3 Алексей Усачев
+                        p.
+                            Я в хобби с 2004 года. Первой игрой был Warhammer Fantasy и гномы, затем воины Хаоса, затем 40к и сестры битвы, затем Warmachine и Хадор, и пошло поехало. Что я больше всего ценю в нашем хобби — это процесс сборки и покраски армии, когда продумываешь все, затем работаешь над реализацией, и, наконец, выставляешь на стол против другой красивой армии. Тот самый момент, когда понимаешь, что часы, проведенные за покрасочным столом, прошли не зря.
+                        p.
+                            Для людей, которых не так увлекает процесс покраски, или нет на нее времени, но есть желание играть красивыми армиями, я и предлагаю свои услуги. Я крашу на заказ с 2009-го года, а с 2013-го это мой основной источник дохода. За это время я покрасил множество целых армий во всех возможных системах, но не перестаю красить и для себя, просто потому что люблю это дело. Сейчас, например, в свободное время, я работаю над армией троллей для Warmachine.
+                        p.
+                            Армии, которые я покрасил, не раз выигрывали призы за лучшую покраску и гарантированно хорошо смотрятся на столе.
+            .row.grey#process
+                .col-xs-12
+                    h2 Процесс работы
+                .col-xs-12.col-md-3
+                    .red-circle
+                        span 1
+                    h3#order-header(href='' data-toggle="modal" data-target="#order-modal") Оформляете заказ
+                .col-xs-12.col-md-3
+                    .red-circle
+                        span 2
+                    h3 Обговариваем детали по телефону
+                .col-xs-12.col-md-3
+                    .red-circle
+                        span 3
+                    h3 Передаете модели и мы начинаем работу
+                .col-xs-12.col-md-3
+                    .red-circle
+                        span 4
+                    h3 Оплачиваете и забираете готовые модели
+                .col-xs-12
+                    .container
+                        .row
+                            p.
+                                Работаем <span class="red-text">без предоплаты</span>.#[br]
+                                Есть несколько вариантов передать нам модели: курьер, встреча в Москве, почта, мы сами покупаем их для Вас (в этом случае требуется предоплата за сами модели)
+                        .row
+                            .col-xs-12
+                                button.btn.red-button(href='' data-toggle="modal" data-target="#order-modal") СДЕЛАТЬ ЗАКАЗ

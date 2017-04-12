@@ -4,3 +4,6 @@ accesses
 node_modules
 public/images/
 start.cmd
+gulp watch.cmd
+дизайны/
+~/

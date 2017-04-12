@@ -3,6 +3,33 @@ block contacts-button
     li.active
         a(href='#') Контакты
 block content
-    .container
-        .row
-            p we are best
+    .container.contacts
+        .col-xs-12.col-md-6
+            .row
+                .col-xs-12
+                    h2 Контакты
+            .row
+                .col-xs-12
+                    h3 Почта
+                    p.
+                        <span class="fa fa-envelope"></span> wargameart@gmail.com
+            .row
+                .col-xs-12
+                    h3 Телефон + <span class="fa fa-telegram"></span>
+                    p.
+                        <span class="fa fa-phone"></span> +7(906)097-08-53
+            .row
+                .col-xs-12
+                    h3 Социальные сети
+                    button.btn(target="_blank" href="https://vk.com/wargameart").social-btn
+                         span.fa.fa-vk.fa-2x
+                    button.btn(target="_blank" href="https://www.instagram.com/wargameart").social-btn
+                        span.fa.fa-instagram.fa-2x
+                    button.btn(target="_blank" href="https://www.youtube.com/channel/UCMdM7q8yKj0zRN-SDLWO6rw/playlists").social-btn
+                        span.fa.fa-youtube.fa-2x
+        .col-xs-12.col-md-6
+            h2 Пункт самовывоза в Москве
+            p ул. Полярная, д. 16, корпус 1
+            p Проезд на трамвае номер 17 от м. Бабушкинская
+            .map
+                script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A7102d4340342fb70c6e2df5ef5a47659cc4b3f7bc38bc01f250bceb678a30684&amp;width=471&amp;height=362&amp;lang=ru_RU&amp;scroll=true")

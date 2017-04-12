@@ -1,3 +1,11 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  padding-top: 50px;
+}
+
 @font-face {
   font-family: "molotregular";
   font-weight: normal;
@@ -5,13 +13,664 @@
   src: url("../fonts/Molot-webfont.eot"), url("../fonts/Molot-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Molot-webfont.woff") format("woff"), url("../fonts/Molot-webfont.ttf") format("truetype"), url("../fonts/Molot-webfont.svg") format("svg");
 }
 
-.normal {
-  font-weight: normal;
+.navbar {
+  font-weight: 500;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-.main {
-  padding-top: 50px;
+.navbar-brand {
+  font-family: "molotregular";
+  color: white !important;
+  text-shadow: 0 0 11px black;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.navbar-brand .w {
+  color: #CC0000;
+}
+
+.main .red-text {
+  color: #CC0000;
+}
+
+.main h1 {
+  margin-top: 45px;
+  font-size: 72px;
+  font-family: molotregular;
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  .main h1 {
+    font-size: 60px;
+  }
+}
+
+.main h2 {
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+}
+
+.main h3 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.main a {
+  font-size: 22px;
+}
+
+.main .grey {
   background-color: #eeeeee;
+}
+
+.main .white {
+  background-color: white;
+}
+
+.main .red {
+  background-color: #FF4D4D;
+  color: white;
+}
+
+.gallery h2, .contacts h2 {
+  text-align: left;
+}
+
+.gallery h3, .contacts h3 {
+  text-align: left;
+}
+
+.gallery span.fa {
+  color: #A60000;
+}
+
+.contacts .map {
+  margin: 50px auto;
+}
+
+.contacts p {
+  font-size: 25px;
+  padding: 5px 15px;
+}
+
+.contacts .social-btn {
+  margin: auto;
+  text-align: center;
+  display: inline-block;
+  background: #F81717;
+  color: white;
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+  line-height: 80px;
+  font-size: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 50px;
+}
+
+.contacts .social-btn:hover {
+  background-color: #FF4D4D;
+}
+
+.contacts .social-btn a {
+  color: #333333;
+}
+
+#why {
+  text-align: center;
+}
+
+#why h2 {
+  padding-bottom: 60px;
+}
+
+#why p {
+  font-weight: 300;
+  font-size: 21px;
+}
+
+#why .group {
+  padding-bottom: 40px;
+}
+
+#why .red-circle {
+  margin: auto;
+  display: block;
+  background-color: #F81717;
+  border-radius: 100%;
+  height: 300px;
+  width: 300px;
+  font-size: 150px;
+  text-align: center;
+  line-height: 300px;
+  color: white;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #why .red-circle {
+    height: 250px;
+    width: 250px;
+    font-size: 100px;
+    line-height: 250px;
+  }
+}
+
+#systems {
+  text-align: center;
+}
+
+#systems a {
+  line-height: 60px;
+}
+
+#systems img {
+  margin: 0 auto;
+}
+
+#systems .logo {
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #systems .logo {
+    height: 200px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #systems .logo {
+    height: 200px;
+  }
+}
+
+#systems .logo img {
+  max-height: 100%;
+}
+
+#systems #wh40k .logo {
+  padding-top: 40px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #systems #wh40k .logo {
+    padding-top: 25px;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  #systems #wh40k .logo {
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+}
+
+#price {
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+#price img {
+  margin: 0 auto;
+  border-radius: 100%;
+}
+
+#price .group {
+  padding-top: 25px;
+  position: relative;
+}
+
+#price .group .red-circle {
+  display: block;
+  background-color: #F81717;
+  border-radius: 100%;
+  height: 134px;
+  width: 134px;
+  font-size: 75px;
+  text-align: center;
+  line-height: 134px;
+  position: absolute;
+  color: white;
+}
+
+#price .group .red-circle .mult {
+  font-size: 60px;
+}
+
+@media (max-width: 380px) {
+  #price .group .left {
+    left: 0px;
+    bottom: 0px;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  #price .group .left {
+    left: 45px;
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #price .group .left {
+    height: 100px;
+    width: 100px;
+    font-size: 60px;
+    text-align: center;
+    line-height: 100px;
+    left: 0px;
+    bottom: 20px;
+  }
+  #price .group .left .mult {
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #price .group .left {
+    left: 0px;
+    bottom: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #price .group .left {
+    left: 45px;
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #price .group .left {
+    left: 95px;
+    bottom: -10px;
+  }
+}
+
+@media (max-width: 380px) {
+  #price .group .right {
+    right: 0px;
+    bottom: 0px;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  #price .group .right {
+    right: 45px;
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #price .group .right {
+    height: 100px;
+    width: 100px;
+    font-size: 60px;
+    text-align: center;
+    line-height: 100px;
+    right: 0px;
+    bottom: 20px;
+  }
+  #price .group .right .mult {
+    font-size: 45px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #price .group .right {
+    right: 0px;
+    bottom: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #price .group .right {
+    right: 45px;
+    bottom: -20px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #price .group .right {
+    right: 95px;
+    bottom: -10px;
+  }
+}
+
+#price p {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #price p {
+    min-height: 310px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #price p {
+    min-height: 225px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #price p {
+    min-height: 170px;
+  }
+}
+
+@media (min-width: 1600px) {
+  #price p {
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 140px;
+  }
+}
+
+#price p span {
+  color: #CC0000;
+}
+
+#price p#text {
+  min-height: 0px;
+  font-size: 20px;
+}
+
+#customers {
+  text-align: center;
+}
+
+#customers img {
+  border-radius: 100%;
+  border: 2px solid black;
+}
+
+#customers p {
+  padding-bottom: 30px;
+  font-size: 16px;
+}
+
+#master {
+  text-align: center;
+}
+
+#master img {
+  border-radius: 100%;
+  border: 2px solid black;
+  margin-top: 30px;
+  margin: auto;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #master h3 {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  #master h3 {
+    text-align: left;
+  }
+}
+
+#master p {
+  font-size: 16px;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #master p {
+    text-align: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  #master p {
+    text-align: left;
+  }
+}
+
+#master .container {
+  padding-bottom: 40px;
+  padding-bottom: 40px;
+}
+
+#process {
+  text-align: center;
+}
+
+#process h2 {
+  padding-bottom: 30px;
+}
+
+#process #order-header:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#process p {
+  font-size: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#process .red-circle {
+  margin: auto;
+  display: block;
+  background-color: #F81717;
+  border-radius: 100%;
+  height: 120px;
+  width: 120px;
+  font-family: 'Molot';
+  font-size: 60px;
+  text-align: center;
+  line-height: 120px;
+  color: white;
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #process .red-circle {
+    height: 100px;
+    width: 100px;
+    font-size: 50px;
+    line-height: 100px;
+  }
+}
+
+#process .btn {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 15px 90px 15px 90px;
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  #process .btn {
+    padding: 15px 50px 15px 50px;
+  }
+}
+
+@media (max-width: 380px) {
+  #process .btn {
+    padding: 15px 15px 15px 15px;
+  }
+}
+
+.jumbotron {
+  background: url("https://s3.amazonaws.com/wargame-art/images/homepage/jumbotron.jpg") no-repeat center center;
+  background-size: cover;
+  min-height: 592px;
+  color: white;
+  padding-bottom: 0px;
+}
+
+.jumbotron p {
+  font-size: 24px;
+  line-height: 44px;
+  font-weight: 400;
+}
+
+.jumbotron .btn {
+  font-size: 30px;
+  font-weight: 500;
+  padding: 15px 90px 15px 90px;
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  .jumbotron .btn {
+    padding: 15px 50px 15px 50px;
+  }
+}
+
+@media (max-width: 380px) {
+  .jumbotron .btn {
+    padding: 15px 15px 15px 15px;
+  }
+}
+
+.red-button {
+  border-radius: 3px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  background-color: #CC0000;
+  color: white;
+  border-style: solid;
+  border: 1px;
+  border-color: #CC0000;
+}
+
+.red-button:hover {
+  background-color: #F81717;
+  color: white;
+}
+
+.red-button:focus {
+  color: white;
+}
+
+#price a {
+  font-size: 22px;
+}
+
+#price .btn {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 15px 90px 15px 90px;
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  #price .btn {
+    padding: 15px 50px 15px 50px;
+  }
+}
+
+@media (max-width: 380px) {
+  #price .btn {
+    padding: 15px 15px 15px 15px;
+  }
+}
+
+.footer {
+  padding-bottom: 40px;
+  background: #333333;
+  color: white;
+}
+
+@media (min-width: 381px) and (max-width: 767px) {
+  .footer {
+    text-align: center;
+  }
+  .footer li {
+    list-style: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer {
+    text-align: center;
+  }
+  .footer li {
+    list-style: none;
+  }
+}
+
+.footer #social {
+  text-align: center;
+}
+
+.footer #social li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer #social .social-btn {
+  margin: auto;
+  text-align: center;
+  display: inline-block;
+  background: white;
+  color: #333333;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  font-size: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.footer #social .social-btn a {
+  color: #333333;
+}
+
+.footer #social .social-btn a:hover {
+  color: #666666;
+}
+
+.footer #service ul {
+  font-size: 14px;
+}
+
+.footer #contacts {
+  font-size: 25px;
+  line-height: 40px;
+}
+
+.footer #contacts ul {
+  font-size: 18px;
+  list-style-type: none;
+}
+
+.footer h4 {
+  text-align: center;
+  font-weight: 300;
+  font-size: 22px;
+}
+
+.footer .row {
+  padding-top: 30px;
+}
+
+.about ul {
+  font-size: 18px;
+}
+
+.about .service-list {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.normal {
+  font-weight: normal;
 }
 
 .gallery-entry {
@@ -100,87 +759,19 @@
 
 #order-button {
   display: inline-block;
-  background-color: #C52525;
+  background-color: #CC0000;
   color: white;
-  border-radius: 4px;
+  border-radius: 3px;
   border-style: solid;
   border: 1px;
-  border-color: #C52525;
-  padding: 6px 12px;
+  border-color: #CC0000;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  padding: 8px 18px;
   margin-top: 7px;
 }
 
 #order-button:hover {
-  background-color: #FF7D7D;
-}
-
-.red-button {
-  background-color: #C52525;
-  color: white;
-  border-style: solid;
-  border: 1px;
-  border-color: #C52525;
-}
-
-.red-button:focus {
-  color: white;
-}
-
-.red-button:hover {
-  background-color: #FF7D7D;
-  color: white;
-}
-
-.navbar-brand {
-  font-family: "molotregular";
-  color: white !important;
-  text-shadow: 0 0 8px black;
-}
-
-.navbar-brand .w {
-  color: #C52525;
-}
-
-.jumbotron {
-  background: url("https://s3.amazonaws.com/wargame-art/jumbotron/jumbotron6.jpg") center top no-repeat;
-  background-color: black;
-  color: white;
-}
-
-.jumbotron h1 {
-  font-family: molotregular;
-}
-
-.jumbotron h1 .w {
-  color: #C52525;
-}
-
-.homerow {
-  text-align: center;
-}
-
-.homerow .homepage-example {
-  max-width: 300px;
-  margin: auto;
-  border-radius: 4px;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.6);
-}
-
-.homerow .homepage-example img {
-  border-radius: 4px 4px 0 0;
-}
-
-.homerow a h3 {
-  color: black;
-}
-
-.homerow a:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
-  text-decoration: none;
-}
-
-.homerow a p:hover {
-  text-decoration: underline;
+  background-color: #F81717;
 }
 
 .gallery-thumb {
@@ -256,7 +847,7 @@
   color: white;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 381px) and (max-width: 767px) {
   #image-modal .close-button span {
     font-size: 25px;
   }
@@ -314,7 +905,7 @@
   color: white;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 381px) and (max-width: 767px) {
   #image-modal .image-wrap .arrow span {
     font-size: 25px;
   }

@@ -5,6 +5,8 @@ html
         title=title
         link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+        link(href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700&amp;subset=cyrillic" rel="stylesheet")
 
     body(ng-app="wargame-art")
         .navbar.navbar-default.navbar-fixed-top
@@ -35,7 +37,7 @@ html
                                 a(href='/price/') Цены
                         block order-button
                             li
-                                a#order-button(href='' data-toggle="modal" data-target="#order-modal") Заказать покраску
+                                a#order-button(href='' data-toggle="modal" data-target="#order-modal") ЗАКАЗАТЬ ПОКРАСКУ
         #order-modal.modal.fade(role="dialog")
             .modal-dialog
                 .modal-content
@@ -47,11 +49,41 @@ html
         .main
             block content
 
-        footer
-            .container-fluid
-                .row(style="z-index: 1")
-                    .col-xs-12
-                        small &copy; Alexey Usachev
+        block footer
+            .footer
+                .container
+                    .row
+                        .col-xs-12.col-md-4#social
+                            h4 Социальные сети
+                            .social-btn
+                                a(target="_blank" href="https://vk.com/wargameart") <span class="fa fa-vk"></span>
+                            .social-btn
+                                a(target="_blank" href="https://www.instagram.com/wargameart") <span class="fa fa-instagram"></span>
+                            .social-btn
+                                a(target="_blank" href="https://www.youtube.com/channel/UCMdM7q8yKj0zRN-SDLWO6rw/playlists") <span class="fa fa-youtube"></span>
+                        .col-xs-12.col-md-4#service
+                            h4 Услуги
+                            ul
+                                li Покраска миниатюр
+                                li Покраска настольных игр
+                                li Warhammer покраска
+                                li Историческая миниатюра
+                                li Масштабные модели покраска
+                                li Malifaux, Infinity the Game, Warmachine покраска
+
+                        .col-xs-12.col-md-4#contacts
+                            h4 Контакты
+                            ul
+                                li.
+                                    <span class="fa fa-phone"></span> +7(906)097-08-53
+                                li.
+                                    <span class="fa fa-envelope"></span> wargameart@gmail.com
+                    .row
+                        .col-xs-12(style="text-align: center")
+                            p Разработка сайта: Алексей Усачев&copy; 2017
+                            p.
+                                <span class="fa fa-envelope"></span> usachev.2010@gmail.com
+
 
         block scripts
             script(src="https://code.jquery.com/jquery-3.1.1.min.js")

@@ -1,5 +1,6 @@
 var app = angular.module("wargame-art",['angularGrid','infinite-scroll']);
 app.directive('levelIcons',levelIcons);
+app.directive('levelName',levelName);
 app.directive('phoneInput',['$filter','$browser',phoneInput]);
 app.service("galleryData",['$http',galleryData]);
 app.service("systemsData",['$http',systemsData]);
@@ -23,6 +24,14 @@ function levelIcons(){
             thisLevel:"=level"
         },
         templateUrl:"/javascripts/angular/levelIcons.html"
+    }
+}
+function levelName(){
+    return {
+        scope:{
+            thisLevel:"=level"
+        },
+        templateUrl:"/javascripts/angular/levelName.html"
     }
 }
 

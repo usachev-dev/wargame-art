@@ -3,6 +3,54 @@ block price-button
     li.active
         a(href='#') Цены
 block content
-    .container
-        .row
-            p are best
+    .container-fluid
+        .row.white#price
+            .col-xs-12
+                h2 Цены
+                p#text.
+                    За отправную точку мы берем то, как миниатюру оценивает сам производитель. Чем дешевле модель, тем проще нам ее покрасить, и наоборот.#[br]
+                    Сборка стоит половину от стоимости моделей, независимо от уровня покраски. Оформление баз и лакировка — бесплатно.#[br]
+                    Есть <span>три уровня</span> покраски:
+            .row
+                .col-xs-12.col-sm-4#horde
+                    .group
+                        img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/horde-small.jpg")
+                        .red-circle.left
+                            span.fa.fa-times.mult
+                            span 1
+                        .red-circle.right
+                            span.fa.fa-users
+                    h3 Орда
+                    h4.
+                        Цена модели <span class="red-text" style="font-weight: bold"><span class="fa fa-times"></span>1</span>
+                    p Покраска стоит столько же, сколько и сама модель. Отличный выбор для больших армий, или если вам не терпится поиграть.
+                    a(href="/gallery/#?levels=1") Перейти в галерею
+                .col-xs-12.col-sm-4#optimal
+                    .group
+                        img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/optimal-small.jpg")
+                        .red-circle.left
+                            span.fa.fa-times.mult
+                            span 2
+                        .red-circle.right
+                            span.fa.fa-thumbs-up
+                    h3 Оптимальный
+                    h4.
+                        Цена модели <span class="red-text" style="font-weight: bold"><span class="fa fa-times"></span>2</span>
+                    p Хорошая покраска с проработкой деталей. Сочные контрастные цвета, световые эффекты. Ваши модели будут отлично выглядеть на столе и на полке.
+                    a(href="/gallery/#?levels=2") Перейти в галерею
+                .col-xs-12.col-sm-4#art
+                    .group
+                        img.img-responsive(src="https://s3.amazonaws.com/wargame-art/images/homepage/art-small.jpg")
+                        .red-circle.left
+                            span.fa.fa-times.mult
+                            span 3
+                        .red-circle.right
+                            span.fa.fa-paint-brush
+                    h3 Художественный
+                    h4.
+                        От цены модели <span class="red-text" style="font-weight: bold"><span class="fa fa-times"></span>3</span>
+                    p Лучшая покраска: Отличный выбор для героев вашей армии или моделей в подарок. Максимальная проработка деталей, продвинутые техники. Все  детали заказов этого уровня обговариваются индивидуально.
+                    a(href="/gallery/#?levels=3") Перейти в галерею
+            .row
+                .col-xs-12
+                    button.btn.red-button(href='' data-toggle="modal" data-target="#order-modal") СДЕЛАТЬ ЗАКАЗ
