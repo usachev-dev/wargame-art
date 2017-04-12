@@ -111,8 +111,6 @@ body {
   width: 80px;
   line-height: 80px;
   font-size: 25px;
-  margin-right: 10px;
-  margin-left: 10px;
   margin-bottom: 50px;
 }
 
@@ -524,6 +522,7 @@ body {
   font-size: 30px;
   font-weight: 500;
   padding: 15px 90px 15px 90px;
+  margin-bottom: 30px;
 }
 
 @media (min-width: 381px) and (max-width: 767px) {
