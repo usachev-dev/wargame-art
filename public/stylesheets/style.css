@@ -802,6 +802,7 @@ body {
 #searchbar.height form {
   height: 120%;
   overflow: scroll;
+  padding-bottom: 30px;
 }
 
 #searchbar.active {
