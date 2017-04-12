@@ -557,6 +557,11 @@ $border-radius-value: 10px
     background-color: $color-primary-2
 
 
+.overflow-hidden
+  overflow: hidden
+.height100
+  height: 100%
+
 
 .gallery-thumb
   min-height: 200px
@@ -565,6 +570,15 @@ $border-radius-value: 10px
 #searchbar
   position: fixed
   right: 0px
+  top: 50px
+  //overflow-y: auto
+  overflow-x: hidden
+#searchbar.height
+  height: 100%
+  width: 100%
+  form
+    height: 120%
+    overflow: scroll
 
 #searchbar.active
   background: rgba(255, 255, 255, 0.9)

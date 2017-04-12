@@ -84,4 +84,7 @@ block scripts
         $("#searchButton").click(function(){
             $( "#searchbar" ).toggleClass( 'hidden-xs' );
             $( "#searchbar" ).toggleClass( 'active' );
+            $( "#searchbar" ).toggleClass( 'height' );
+            $(document.body).toggleClass( 'overflow-hidden' );
+            $(document.body).toggleClass( 'height100' );
         });

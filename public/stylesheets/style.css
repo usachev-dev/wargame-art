@@ -774,6 +774,14 @@ body {
   background-color: #F81717;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.height100 {
+  height: 100%;
+}
+
 .gallery-thumb {
   min-height: 200px;
   min-width: 200px;
@@ -782,6 +790,18 @@ body {
 #searchbar {
   position: fixed;
   right: 0px;
+  top: 50px;
+  overflow-x: hidden;
+}
+
+#searchbar.height {
+  height: 100%;
+  width: 100%;
+}
+
+#searchbar.height form {
+  height: 120%;
+  overflow: scroll;
 }
 
 #searchbar.active {
