@@ -82,12 +82,6 @@ block scripts
 
     script.
         $("#searchButton").click(function(){
-            var element = angular.element($('#searchbar'));
-            var controller = element.controller();
-            var scope = element.scope();
-
-            scope.$apply(function(){
-                controller.searchbarToggle();
-            })
-            //$("#gallery").scope().sidebarHidden="active";
+            $( "#searchbar" ).toggleClass( 'hidden-xs' );
+            $( "#searchbar" ).toggleClass( 'active' );
         });

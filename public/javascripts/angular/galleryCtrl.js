@@ -163,16 +163,5 @@ function galleryCtrl($scope,galleryData,systemsData,genresData,filterFilter,$loc
         .error(function(e){
             console.log(e);
         });
-
-
-    //$scope.searchbarClass = 'hidden-xs';
-
-    this.searchbarToggle = function(){
-        if ($scope.searchbarClass == 'hidden-xs'){
-            $scope.searchbarClass = 'active'
-        } else {
-            $scope.searchbarClass = 'hidden-xs'
-        }
-    };
-
+    
 }
