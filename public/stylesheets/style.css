@@ -24,6 +24,7 @@ body {
   color: white !important;
   text-shadow: 0 0 11px black;
   font-size: 26px;
+  line-height: 26px;
   font-weight: 500;
 }
 
