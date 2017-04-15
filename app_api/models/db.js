@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
-var dbURI = 'mongodb://alex:alex@localhost/wargame-art';
-if (process.env.NODE_ENV==='production') {
-    dbURI = 'mongodb://alex:alex@ds013222.mlab.com:13222/heroku_gt06l3lf'
-}
+var dbURI = process.env.LOCAL_DB_ENV;
 
+if (process.env.NODE_ENV==='production') {
+    dbURI = process.env.PRODUCTION_DB_ENV;
+}
 mongoose.connect(dbURI);
 /*
 mongoose.connection.on('connected',function(){
