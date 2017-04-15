@@ -145,20 +145,20 @@ body {
   display: block;
   background-color: #F81717;
   border-radius: 100%;
-  height: 300px;
-  width: 300px;
-  font-size: 150px;
+  height: 200px;
+  width: 200px;
+  font-size: 100px;
   text-align: center;
-  line-height: 300px;
+  line-height: 200px;
   color: white;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   #why .red-circle {
-    height: 250px;
-    width: 250px;
-    font-size: 100px;
-    line-height: 250px;
+    height: 150px;
+    width: 150px;
+    font-size: 80px;
+    line-height: 150px;
   }
 }
 
