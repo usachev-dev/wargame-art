@@ -94,20 +94,11 @@ block scripts
                     Math.max(document.body.clientHeight, document.documentElement.clientHeight)
             );
         }
-
-        /*$(window).scroll(function () {
-            var docHeight = getDocumentHeight();
-            if ($(window).scrollTop() + $(window).height() >= (docHeight-10)) {
-                angular.element(document.getElementById('galleryID')).scope().gc.loadGalleries();
-                angular.element(document.getElementById('galleryID')).scope().$apply();
-                //console.log('scroll');
-            }
-        });*/
-        window.onscroll = function (ev) {
+        window.onscroll = function () {
             if ((window.innerHeight + window.pageYOffset) >= (document.body.offsetHeight-10)) {
                 angular.element(document.getElementById('galleryID')).scope().gc.loadGalleries();
                 angular.element(document.getElementById('galleryID')).scope().$apply();
-                console.log("you're at the bottom of the page");
+                //console.log("you're at the bottom of the page");
             }
         };
 
