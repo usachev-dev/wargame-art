@@ -6,7 +6,7 @@ block gallery-button
 block content
     script(src="https://code.jquery.com/jquery-3.1.1.min.js")
     script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js")
-    .container-fluid.gallery(ng-controller="galleryCtrl as gc" ng-cloak )
+    .container-fluid.gallery#galleryID(ng-controller="galleryCtrl as gc" ng-cloak )
         .col-xs-12.col-sm-9.col-lg-10
             .row
                 #banner
@@ -16,8 +16,7 @@ block content
             ag-grid-width="300"
             ag-gutter-size="10"
             ag-id="gallery"
-            infinite-scroll="gc.loadGalleries()"
-            infinite-scroll-distance="0.2"
+
             )
                 .gallery-entry(ng-repeat="gallery in gc.showedGalleries track by $index")
                     a(href='/gallery/{{gallery.slug}}')
@@ -88,3 +87,20 @@ block scripts
             $(document.body).toggleClass( 'overflow-hidden' );
             $(document.body).toggleClass( 'height100' );
         });
+        function getDocumentHeight() {
+            return Math.max(
+                    Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+                    Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
+                    Math.max(document.body.clientHeight, document.documentElement.clientHeight)
+            );
+        }
+
+        $(window).scroll(function () {
+            var docHeight = getDocumentHeight();
+            if ($(window).scrollTop() + $(window).height() >= (docHeight-10)) {
+                angular.element(document.getElementById('galleryID')).scope().gc.loadGalleries();
+                angular.element(document.getElementById('galleryID')).scope().$apply();
+                //console.log('scroll');
+            }
+        });
+
