@@ -48,6 +48,12 @@ body {
   }
 }
 
+@media (max-width: 380px) {
+  .main h1 {
+    font-size: 60px;
+  }
+}
+
 .main h2 {
   text-align: center;
   font-family: 'Roboto Slab', serif;
